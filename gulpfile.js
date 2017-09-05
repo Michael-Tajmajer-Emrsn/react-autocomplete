@@ -5,13 +5,6 @@
 
 'use strict';
 
-// Hack for Ubuntu on Windows: interface enumeration fails with EINVAL, so return empty.
-try {
-  require('os').networkInterfaces();
-} catch (e) {
-  require('os').networkInterfaces = () => ({});
-}
-
 // Include Gulp and other build automation tools and utilities
 // See: https://github.com/gulpjs/gulp/blob/master/docs/API.md
 var gulp = require('gulp');
