@@ -5,6 +5,13 @@
 
 'use strict';
 
+// Hack for Ubuntu on Windows: interface enumeration fails with EINVAL, so return empty.
+try {
+  require('os').networkInterfaces();
+} catch (e) {
+  require('os').networkInterfaces = () => ({});
+}
+
 // Include Gulp and other build automation tools and utilities
 // See: https://github.com/gulpjs/gulp/blob/master/docs/API.md
 var gulp = require('gulp');
@@ -17,6 +24,7 @@ var webpack = require('webpack');
 var browserSync = require('browser-sync');
 var argv = require('minimist')(process.argv.slice(2));
 var gulpWebpack = require('gulp-webpack');
+
 
 // Settings
 var DEST = './lib';                         // The build output folder

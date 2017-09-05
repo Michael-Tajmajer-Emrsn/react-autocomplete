@@ -2,19 +2,22 @@ var React         = require('react');
 var ReactDOM      = require('react-dom');
 var joinClasses   = require('classnames');
 
-var Autocomplete = React.createClass({
+const PropTypes               = require('prop-types');
+const createReactClass        = require('create-react-class');
+
+var Autocomplete = createReactClass({
 
   propTypes: {
-    options: React.PropTypes.any,
-    search: React.PropTypes.func,
-    resultRenderer: React.PropTypes.oneOfType([
-      React.PropTypes.component,
-      React.PropTypes.func
+    options: PropTypes.any,
+    search: PropTypes.func,
+    resultRenderer: PropTypes.oneOfType([
+      PropTypes.component,
+      PropTypes.func
     ]),
-    value: React.PropTypes.object,
-    onChange: React.PropTypes.func,
-    onError: React.PropTypes.func,
-    onFocus: React.PropTypes.func
+    value: PropTypes.object,
+    onChange: PropTypes.func,
+    onError: PropTypes.func,
+    onFocus: PropTypes.func
   },
 
   getDefaultProps: function() {
@@ -244,7 +247,7 @@ var Autocomplete = React.createClass({
   }
 });
 
-var Results = React.createClass({
+var Results = createReactClass({
 
   getResultIdentifier : function(result){
     if(this.props.resultIdentifier === undefined){
@@ -345,7 +348,7 @@ var Results = React.createClass({
   }
 });
 
-var Result = React.createClass({
+var Result = createReactClass({
 
   getDefaultProps : function(){
     return {
