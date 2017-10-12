@@ -8,11 +8,19 @@ const createReactClass        = require('create-react-class');
 var Autocomplete = createReactClass({
 
   propTypes: {
+<<<<<<< HEAD
     options: PropTypes.any,
     search: PropTypes.func,
     resultRenderer: PropTypes.oneOfType([
-      PropTypes.element,
+      PropTypes.component,
       PropTypes.func
+=======
+    options: React.PropTypes.any,
+    search: React.PropTypes.func,
+    resultRenderer: React.PropTypes.oneOfType([
+      React.PropTypes.element,
+      React.PropTypes.func
+>>>>>>> master
     ]),
     value: PropTypes.object,
     onChange: PropTypes.func,
